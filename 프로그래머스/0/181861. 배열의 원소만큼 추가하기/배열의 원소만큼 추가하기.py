@@ -1,7 +1,3 @@
 def solution(arr):
-    answer = []
-    
-    for a in arr:
-        answer += [a] * a
-    
+    answer = [a for a in arr for i in range(a)]
     return answer
