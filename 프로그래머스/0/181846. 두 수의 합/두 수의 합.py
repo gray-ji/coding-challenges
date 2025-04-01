@@ -1,2 +1,2 @@
 def solution(a, b):
-    return f'{int(a) + int(b)}'
+    return str(int(a) + int(b))
