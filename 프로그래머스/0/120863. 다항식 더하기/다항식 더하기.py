@@ -1,21 +1,17 @@
 def solution(polynomial):
-    tmp = polynomial.split()
+    terms = polynomial.split(' + ')
     linear, constant = 0, 0
     
-    for i in range(0, len(tmp), 2):
-        if 'x' in tmp[i]:
-            if tmp[i] == 'x':
-                linear += 1
-            else:
-                linear += int(tmp[i][:-1])
+    for term in terms:
+        if 'x' in term:
+            linear += int(term[:-1]) if term[:-1] else 1
         else:
-            constant += int(tmp[i])
+            constant += int(term)
 
-    if linear != 0:
-        linear = 'x' if linear == 1 else f'{linear}x'
-        
-    if linear != 0 and constant != 0:
-        return f'{linear} + {constant}'
-    if linear != 0:
-        return f'{linear}'
-    return f'{constant}'
+    result = []
+    if linear:
+        result.append('x' if linear == 1 else f'{linear}x')
+    if constant:
+        result.append(f'{constant}')
+    
+    return ' + '.join(result)
