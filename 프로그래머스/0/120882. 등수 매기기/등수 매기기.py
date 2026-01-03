@@ -1,7 +1,7 @@
 def solution(score):
     answer = [0] * len(score)
 
-    avgs = [[sum(v) / 2, i] for i, v in enumerate(score)]
+    avgs = [(v[0] + v[1], i) for i, v in enumerate(score)]
     avgs.sort(reverse = True)
     
     rank, dup = 1, 1
