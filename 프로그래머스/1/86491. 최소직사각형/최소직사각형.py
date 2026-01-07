@@ -3,7 +3,6 @@ def solution(sizes):
     
     for size in sizes:
         x, y = max(size), min(size)
-        w = x if x > w else w
-        l = y if y > l else l
+        w, l = max(x, w), max(y, l)
     
     return w * l
