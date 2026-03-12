@@ -2,8 +2,9 @@ def solution(n):
     answer = 1
     
     for i in range(1, n):
-        for j in range(i, n):
-            hab = sum(range(i, j+1))
+        hab = i
+        for j in range(i+1, n):
+            hab += j
             if hab >= n:
                 if hab == n:
                     answer += 1
