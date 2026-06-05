@@ -1,20 +1,10 @@
-import java.util.Stack;
-
 class Solution {
     public String solution(String[] cards1, String[] cards2, String[] goal) {
-        Stack<String> stack1 = new Stack<>();
-        Stack<String> stack2 = new Stack<>();
-        
-        for (int i = cards1.length - 1; i >= 0; i--)
-            stack1.push(cards1[i]);
-        for (int i = cards2.length - 1; i >= 0; i--)
-            stack2.push(cards2[i]);
+        int p1 = 0, p2 = 0;
         
         for (String word : goal) {
-            if (!stack1.empty() && stack1.peek().equals(word))
-                stack1.pop();
-            else if (!stack2.empty() && stack2.peek().equals(word))
-                stack2.pop();
+            if (p1 < cards1.length && cards1[p1].equals(word)) p1++;
+            else if (p2 < cards2.length && cards2[p2].equals(word)) p2++;
             else return "No";
         }
         return "Yes";
