@@ -1,20 +1,13 @@
 import java.util.Arrays;
 
 class Solution {
-    public int solution(int k, int m, int[] score) {    
-        int len = score.length;
+    public int solution(int k, int m, int[] score) {
+        int answer = 0;
+        int start = score.length - m;
         
         Arrays.sort(score);
         
-        for (int i=0; i<len/2; i++) {
-            int temp = score[i];
-            score[i] = score[len - 1 - i];
-            score[len - 1 - i] = temp;
-        }
-        
-        int answer = 0;
-        
-        for (int i=m-1; i<len; i+=m)
+        for (int i=start; i>=0; i-=m)
             answer += score[i] * m;
         
         return answer;
